@@ -10,8 +10,8 @@ import { EnvironmentService } from './environment.service';
 export class ProductService {
   private rootUrl: string;
   constructor(
-    private httpClient: HttpClient,
-    private environmentService: EnvironmentService
+    public httpClient: HttpClient,
+    public environmentService: EnvironmentService
   ) {
       this.rootUrl = this.environmentService.getAPIUrl();
    }

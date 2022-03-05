@@ -1,1 +1,30 @@
-<p>product-details works!</p>
+<section class="content">
+    <div class="container-fluid">
+
+        <h4>Product details</h4>
+
+        <div class="row">
+            <div class="col-12">
+                <table *ngIf="product != null" class="table">
+                    <tr>
+                        <td>Product Name </td>
+                        <td>{{product.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Entry Date</td>
+                        <td>{{product.entryDate}}</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>{{product.price}}</td>
+                    </tr>
+                </table>
+
+                <div>
+                    <a routerLink="/products/"> Back to Product List </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

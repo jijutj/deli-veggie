@@ -1,1 +1,30 @@
-<p>product-list works!</p>
+<section class="content">
+    <div class="container-fluid">
+
+        <h4>Products</h4>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Entry Date</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="products.length > 0">
+                        <tr scope="row" *ngFor="let prod of products">
+                            <td>{{prod.name}}</td>
+                            <td>{{prod.entryDate}}</td>
+                            <td>{{prod.price}}</td>
+                            <td>
+                                <a routerLink="/product/{{prod.id}}"> Details </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
