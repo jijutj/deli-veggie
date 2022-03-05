@@ -16,7 +16,7 @@ namespace DeliVeggie.Gateway.Services
 
         public IEnumerable<Product> GetProducts()
         {
-            List<Product> productModels = new List<Product>();
+            List<Product> productModels = null;
             // todo
 
             return productModels;
@@ -24,7 +24,7 @@ namespace DeliVeggie.Gateway.Services
 
         public Product GetProduct(string ProductId)
         {
-            Product productModels = new Product();
+            Product productModels = null;
             // todo
 
             return productModels;
