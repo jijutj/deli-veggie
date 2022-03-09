@@ -25,7 +25,7 @@ namespace DeliVeggie.Gateway.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<ProductModel>> GetProducts()
         {
-            IEnumerable<ProductModel> products = productService.GetProducts(); ;
+            IEnumerable<ProductModel> products = productService.GetProducts();
 
             return Ok(products);
         }
