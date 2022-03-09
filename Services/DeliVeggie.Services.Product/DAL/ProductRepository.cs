@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DeliVeggie.Services.Product.Entities;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +13,19 @@ namespace DeliVeggie.Services.Product.DAL
         public ProductRepository(IConfiguration configuration)
         {
             this.collection = this.InitializeMongo(configuration);
+
+            // ProductMdo pro = new ProductMdo{
+            //     EntryDate = DateTime.Now,
+            //     Name = "product1",
+            //     Price = 100
+            // };
+            // this.collection.InsertOne(pro, null, default);
+            // pro = new ProductMdo{
+            //     EntryDate = DateTime.Now,
+            //     Name = "product2",
+            //     Price = 200
+            // };
+            // this.collection.InsertOne(pro, null, default);
         }
 
         public IEnumerable<ProductMdo> GetProducts(){
