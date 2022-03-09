@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DeliVeggie.Services.Product.BL;
+using DeliVeggie.Services.Product.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,9 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using DeliVeggie.Gateway.Services;
 
-namespace DeliVeggie.Gateway
+namespace DeliVeggie.Services.Product
 {
     public class Startup
     {
@@ -28,16 +29,8 @@ namespace DeliVeggie.Gateway
         {
             services.AddControllers();
 
-            services.AddTransient<ProductService>();
-
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
-            {
-                builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader();
-            }));
-
-            services.AddSwaggerGen();
+            services.AddTransient<ProductLogic>();
+            services.AddTransient<ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,11 +41,6 @@ namespace DeliVeggie.Gateway
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(x => x
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -62,11 +50,6 @@ namespace DeliVeggie.Gateway
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-            app.UseSwagger();  
-            app.UseSwaggerUI(c => {  
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V2");  
             });
         }
     }

@@ -14,20 +14,29 @@ namespace DeliVeggie.Gateway.Services
             this.Configuration = Configuration;
         }
 
-        public IEnumerable<Product> GetProducts()
+        public IEnumerable<ProductModel> GetProducts()
         {
-            List<Product> productModels = null;
+            List<ProductModel> products = new List<ProductModel>();
             // todo
-
-            return productModels;
+            products.Add(new ProductModel{
+                EntryDate = DateTime.Now,
+                Id="1",
+                Name="product1",
+                Price= 100
+            });
+            return products;
         }
 
-        public Product GetProduct(string ProductId)
+        public ProductModel GetProduct(string ProductId)
         {
-            Product productModels = null;
-            // todo
-
-            return productModels;
+            // todo.
+            ProductModel product = new ProductModel{
+                EntryDate = DateTime.Now,
+                Id="1",
+                Name="product1",
+                Price= 100
+            };
+            return product;
         }
     }
 }
